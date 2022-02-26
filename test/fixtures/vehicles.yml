@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: one
+  name: MyString
+  color: MyString
+  qty_passengers: 1
+  plate: MyString
+  value: 9.99
+
+two:
+  brand: two
+  name: MyString
+  color: MyString
+  qty_passengers: 1
+  plate: MyString
+  value: 9.99
