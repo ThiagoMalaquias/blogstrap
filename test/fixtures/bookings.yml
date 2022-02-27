@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle: one
+  client: one
+  waiting_time: 1
+  total_value: 9.99
+  start_date: 2022-02-26 21:47:14
+  end_date: 2022-02-26 21:47:14
+  target_payment: false
+
+two:
+  vehicle: two
+  client: two
+  waiting_time: 1
+  total_value: 9.99
+  start_date: 2022-02-26 21:47:14
+  end_date: 2022-02-26 21:47:14
+  target_payment: false

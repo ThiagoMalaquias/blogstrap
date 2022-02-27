@@ -10,13 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_26_180824) do
+ActiveRecord::Schema.define(version: 2022_02_27_004714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "vehicle_id", null: false
+    t.bigint "client_id", null: false
+    t.integer "waiting_time"
+    t.decimal "total_value"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean "target_payment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_bookings_on_client_id"
+    t.index ["vehicle_id"], name: "index_bookings_on_vehicle_id"
+  end
+
   create_table "brands", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "cpf"
+    t.string "cep"
+    t.string "state"
+    t.string "street"
+    t.string "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,5 +58,7 @@ ActiveRecord::Schema.define(version: 2022_02_26_180824) do
     t.index ["brand_id"], name: "index_vehicles_on_brand_id"
   end
 
+  add_foreign_key "bookings", "clients"
+  add_foreign_key "bookings", "vehicles"
   add_foreign_key "vehicles", "brands"
 end

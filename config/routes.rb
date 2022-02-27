@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :managers
+  resources :bookings
+  resources :clients
   resources :vehicles
   resources :brands
 

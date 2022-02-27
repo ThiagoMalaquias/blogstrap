@@ -1,58 +1,53 @@
-<p id="notice"><%= notice %></p>
-<div class="max-w-6xl mx-auto ">
-  <div class="flex justify-between my-10">
-    <p class="text-3xl dark:text-white ">Veículos</p>
-    <%= link_to 'Novo Veiculo', new_vehicle_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
-  </div>
+<div class="flex justify-between my-10">
+  <p class="text-3xl dark:text-white ">Veículos</p>
+  <%= link_to 'Novo Veiculo', new_vehicle_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
 </div>
-<div class="max-w-6xl mx-auto ">
-  <div class="flex flex-col">
-    <div class="overflow-x-auto shadow-md ">
-      <div class="inline-block min-w-full align-middle">
-        <div class="overflow-hidden ">
-          <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
-            <thead class="bg-gray-100 dark:bg-gray-700">
-              <tr>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                  Brand
-                </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                  Name
-                </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                  Color
-                </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                  Qty passengers
-                </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                  Plate
-                </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                  Value
-                </th>
-                <th></th>
-                <th></th>
-                <th></th>
+<div class="flex flex-col">
+  <div class="overflow-x-auto shadow-md ">
+    <div class="inline-block min-w-full align-middle">
+      <div class="overflow-hidden ">
+        <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+          <thead class="bg-gray-100 dark:bg-gray-700">
+            <tr>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                Brand
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                Name
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                Color
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                Qty passengers
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                Plate
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                Value
+              </th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+            <% @vehicles.each do |vehicle| %>
+              <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.brand.name %></td>
+                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.name %></td>
+                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.color %></td>
+                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.qty_passengers %></td>
+                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.plate %></td>
+                <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.value %></td>
+                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Show', vehicle, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"  %></td>
+                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Edit', edit_vehicle_path(vehicle), class: "text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900" %></td>
+                <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" %></td>
               </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-              <% @vehicles.each do |vehicle| %>
-                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.brand_id %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.name %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.color %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.qty_passengers %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.plate %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= vehicle.value %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Show', vehicle, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"  %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Edit', edit_vehicle_path(vehicle), class: "text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900" %></td>
-                  <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
