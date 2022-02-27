@@ -1,4 +1,4 @@
-class BrandsController < ApplicationController
+class BrandsController < ManagersController
   before_action :set_brand, only: %i[ show edit update destroy ]
 
   # GET /brands or /brands.json

@@ -1,4 +1,4 @@
-class VehiclesController < ApplicationController
+class VehiclesController < ManagersController
   before_action :set_vehicle, only: %i[ show edit update destroy ]
 
   # GET /vehicles or /vehicles.json

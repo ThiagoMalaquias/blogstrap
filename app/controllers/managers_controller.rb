@@ -1,5 +1,12 @@
 class ManagersController < ApplicationController
   before_action :set_manager, only: %i[ show edit update destroy ]
+  before_action :authenticate_manager!
+
+  def authenticate_manager!
+    if cookies[:manager].blank?
+      redirect_to manager_login_path
+    end
+  end
 
   # GET /managers or /managers.json
   def index
