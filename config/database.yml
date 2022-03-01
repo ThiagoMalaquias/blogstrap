@@ -10,14 +10,14 @@ default: &default
 
 development:
   <<: *default
-  database: locacao_veiculos_development
+  database: blogstrap_development
 
 test:
   <<: *default
-  database: locacao_veiculos_test
+  database: blogstrap_test
 
 production:
   <<: *default
-  database: locacao_veiculos_production
-  username: locacao_veiculos
-  password: <%= ENV['LOCACAO_VEICULOS_DATABASE_PASSWORD'] %>
+  database: blogstrap_production
+  username: blogstrap
+  password: <%= ENV['BLOGSTRAP_DATABASE_PASSWORD'] %>

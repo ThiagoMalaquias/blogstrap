@@ -3,9 +3,7 @@ class ManagersController < ApplicationController
   before_action :authenticate_manager!
 
   def authenticate_manager!
-    if cookies[:manager].blank?
-      redirect_to manager_login_path
-    end
+      redirect_to manager_login_path if cookies[:manager].blank?
   end
 
   # GET /managers or /managers.json

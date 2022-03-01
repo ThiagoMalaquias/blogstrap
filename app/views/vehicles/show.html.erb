@@ -13,15 +13,15 @@
           <tbody>
             <tr class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 dark:border-gray-600">
               <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Brand
+                Brand:
               </td>
               <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                <%= @vehicle.brand_id %>
+                <%= @vehicle.brand.name %>
               </td>
             </tr>
             <tr class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 dark:border-gray-600">
               <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Name
+                Name:
               </td>
               <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                 <%= @vehicle.name %>
@@ -29,7 +29,7 @@
             </tr>
             <tr class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700 dark:border-gray-600">
               <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Color
+                Color:
               </td>
               <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                 <%= @vehicle.color %>

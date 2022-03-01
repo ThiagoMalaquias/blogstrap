@@ -4,9 +4,57 @@
   <% end %>
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Reservas</h1>
-    <%= link_to 'New booking', new_booking_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
-  <div id="bookings" class="min-w-full">
-    <%= render @bookings %>
+  <div class="flex flex-col mt-6">
+    <div class="overflow-x-auto shadow-md ">
+      <div class="inline-block min-w-full align-middle">
+        <div class="overflow-hidden ">
+          <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-700">
+            <thead class="bg-gray-100 dark:bg-gray-700">
+              <tr>
+                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                  Vehicle
+                </th>
+                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                  Client
+                </th>
+                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                  Waiting Time
+                </th>
+                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                  Values
+                </th>
+                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                  Start Date
+                </th>
+                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                  End Date
+                </th>
+                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                  Target Payment
+                </th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+              <% @bookings.each do |booking| %>
+                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= link_to booking.vehicle.name, booking.vehicle%></td>
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= link_to booking.client.name, booking.client %></td>
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= booking.waiting_time %></td>
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= booking.total_value %></td>
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= booking.start_date.strftime("%d/%m/%Y") rescue ''%></td>
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= booking.end_date.strftime("%d/%m/%Y") rescue ''%></td>
+                  <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"><%= booking.target_payment %></td>
+                  <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Show', booking, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"  %></td>
+                  <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap"><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
